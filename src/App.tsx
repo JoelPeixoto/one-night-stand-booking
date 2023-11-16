@@ -20,8 +20,8 @@ function Copyright(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="#">
+        One Night Stand
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -31,65 +31,74 @@ function Copyright(props: any) {
 
 const tiers = [
   {
-    title: 'Free',
-    price: '0',
+    title: 'Individual',
+    price: '10',
     description: [
-      '10 users included',
-      '2 GB of storage',
-      'Help center access',
-      'Email support',
+      '1 pessoa',
+      'Casa de banho partilhada',
+      'WiFi gratuito',
+      'Mini frigorífico',
     ],
-    buttonText: 'Sign up for free',
+    buttonText: 'Reserve já',
     buttonVariant: 'outlined',
+    breakfast: false,
+    bedType: ['Individual'],
+    peopleCount: 1,
   },
   {
-    title: 'Pro',
-    subheader: 'Most popular',
+    title: 'Duplo',
+    subheader: 'Mais popular',
     price: '15',
     description: [
-      '20 users included',
-      '10 GB of storage',
-      'Help center access',
-      'Priority email support',
+      '2 pessoas',
+      'Casa de banho privada',
+      'WiFi gratuito',
+      'Mini frigorífico',
     ],
-    buttonText: 'Get started',
+    buttonText: 'Reserve já',
     buttonVariant: 'contained',
+    breakfast: false,
+    bedType: ['Individual', 'Casal'],
+    peopleCount: 2,
   },
   {
-    title: 'Enterprise',
-    price: '30',
+    title: 'Família',
+    price: '25+',
     description: [
-      '50 users included',
-      '30 GB of storage',
-      'Help center access',
-      'Phone & email support',
+      '3+ pessoas',
+      'Casa de banho privada',
+      'WiFi gratuito',
+      'Mini frigorífico',
     ],
-    buttonText: 'Contact us',
+    buttonText: 'Reserve já',
     buttonVariant: 'outlined',
+    breakfast: false,
+    bedType: [],
+    peopleCoun: undefined,
   },
 ];
 const footers = [
   {
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
+    title: 'Sobre nós',
+    description: ['Equipa', 'História', 'Entre em contato', 'Localizações'],
   },
   {
-    title: 'Features',
+    title: 'Características',
     description: [
-      'Cool stuff',
-      'Random feature',
-      'Team feature',
-      'Developer stuff',
-      'Another one',
+      'Quartos',
+      'Pequeno-almoço',
+      'Casas de banho',
+      'Experiências sensoriais',
+      'Seguro',
     ],
   },
   {
-    title: 'Resources',
-    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
+    title: 'Funcionalidades',
+    description: ['Check-in/Check-out', 'Atendimento 24h', 'Depósito de malas'],
   },
   {
     title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
+    description: ['Política de privacidade', 'Termos de utilização'],
   },
 ];
 
@@ -99,7 +108,11 @@ const defaultTheme = createTheme();
 export default function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
+      <GlobalStyles styles={[
+        { ul: { margin: 0, padding: 0, listStyle: 'none' } }, 
+        {body: { backgroundColor: "#535878 !important" }},
+        {header: { backgroundColor: "#535878 !important", borderBottom: "1px solid transparent !important" }}
+      ]} />
       <CssBaseline />
       <AppBar
         position="static"
@@ -118,7 +131,7 @@ export default function App() {
               href="#"
               sx={{ my: 1, mx: 1.5 }}
             >
-              Features
+              Características
             </Link>
             <Link
               variant="button"
@@ -126,7 +139,7 @@ export default function App() {
               href="#"
               sx={{ my: 1, mx: 1.5 }}
             >
-              Enterprise
+              Sobre nós
             </Link>
             <Link
               variant="button"
@@ -134,10 +147,10 @@ export default function App() {
               href="#"
               sx={{ my: 1, mx: 1.5 }}
             >
-              Support
+              Suporte
             </Link>
           </nav>
-          <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+          <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5, color: "#FEE1DD", borderColor: "#FEE1DD", "&:hover": {borderColor: "#E9C2C5", backgroundColor:"#E9C2C5", color:"#CEA0AA"} }}>
             Login
           </Button>
         </Toolbar>
@@ -151,12 +164,11 @@ export default function App() {
           color="text.primary"
           gutterBottom
         >
-          Pricing
+          Tipos de Quarto
         </Typography>
         <Typography variant="h5" align="center" color="text.secondary" component="p">
-          Quickly build an effective pricing table for your potential customers with
-          this layout. It&apos;s built with default MUI components with little
-          customization.
+          One Night Stand providencia três tipos de quarto, em que cada um difere na sua experiência sensorial e perfeitamente adaptada ao número de pessoas na estadia.
+         {/* Encontre rapidamente alojamento num dos nossos hotéis cápsula e desfrute de variadas experiências sensoriais durante a sua breve estadia. */} 
         </Typography>
       </Container>
       {/* End hero unit */}
@@ -197,10 +209,10 @@ export default function App() {
                     }}
                   >
                     <Typography component="h2" variant="h3" color="text.primary">
-                      ${tier.price}
+                      €{tier.price}
                     </Typography>
                     <Typography variant="h6" color="text.secondary">
-                      /mo
+                      /noite
                     </Typography>
                   </Box>
                   <ul>
