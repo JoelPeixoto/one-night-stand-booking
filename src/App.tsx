@@ -167,7 +167,7 @@ export default function App() {
           Tipos de Quarto
         </Typography>
         <Typography variant="h5" align="center" color="text.secondary" component="p">
-          One Night Stand providencia três tipos de quarto, em que cada um difere na sua experiência sensorial e perfeitamente adaptada ao número de pessoas na estadia.
+          One Night Stand providencia três tipos de quarto, em que cada um possui uma experiência sensorial única e perfeitamente adaptada ao número de pessoas na estadia.
          {/* Encontre rapidamente alojamento num dos nossos hotéis cápsula e desfrute de variadas experiências sensoriais durante a sua breve estadia. */} 
         </Typography>
       </Container>
